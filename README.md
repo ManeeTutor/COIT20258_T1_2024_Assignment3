@@ -36,4 +36,5 @@ Sequence diarams
 
 Syetm architecture
 
-<img width="546" alt="Screenshot 2024-05-29 at 2 37 22 pm" src="https://github.com/ManeeTutor/COIT20258_T1_2024_Assignment3/assets/127360529/881678a9-1d5a-4aa0-b8d9-9160403b9649">
+
+<img width="377" alt="Screenshot 2024-05-29 at 5 54 00 pm" src="https://github.com/ManeeTutor/COIT20258_T1_2024_Assignment3/assets/127360529/b326e504-6f37-4920-bf72-31f252f52af4">
