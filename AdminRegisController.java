@@ -7,6 +7,7 @@ package com.cqu.aise.client;
 import com.cqu.aise.server.AdminStaff;
 import com.cqu.aise.server.Constants;
 import com.cqu.aise.server.DatabaseUtils;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
@@ -62,7 +63,6 @@ public class AdminRegisController implements Initializable {
         );
         adminRegisLocationChoicebox.setItems(FXCollections.observableArrayList(locationNames));
 
-
         List<String> positionTypeNames = Arrays.asList(
                 Constants.PositionType.FULL_TIME,
                 Constants.PositionType.PART_TIME,
@@ -70,7 +70,6 @@ public class AdminRegisController implements Initializable {
         );
         adminRegisPositionTypeChoicebox.setItems(FXCollections.observableArrayList(positionTypeNames));
     }
-    
 
     @FXML
     private void adminRegisRegisterBtnHandler(ActionEvent event) {
@@ -82,17 +81,14 @@ public class AdminRegisController implements Initializable {
         String phone = adminRegisPhoneTextField.getText();
         String email = adminRegisEmailTextField.getText();
 
- 
         String positionTypeString = adminRegisPositionTypeChoicebox.getValue();
         String locationString = adminRegisLocationChoicebox.getValue();
 
-
         if (positionTypeString != null && locationString != null) {
 
-            AdminStaff adminStaff = new AdminStaff(positionTypeString, "Admin Staff", userName, password, fullName, address, phone, email, locationString);
-
-
-            DatabaseUtils.adminRegister(adminStaff);
+            AdminStaff adminStaff = new AdminStaff(positionTypeString, Constants.UserType.ADMINSTAFF, userName, password, fullName, address, phone, email, locationString);
+            adminStaff.register();
+            //DatabaseUtils.adminRegister(adminStaff);
         } else {
 
             System.out.println("Must choose location and position type");
@@ -101,6 +97,11 @@ public class AdminRegisController implements Initializable {
 
     @FXML
     private void adminRegisBackBtnHandler(ActionEvent event) {
+        try {
+            App.setRoot("Login");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
