@@ -76,6 +76,10 @@ public class MultiThreadedServer {
             DatabaseUtils.checkAndCreateDatabase();
             // Create AdminStaff table if it doesn't exist
             DatabaseUtils.createAdminStaffTable();
+            // Create ManageStaff table if it doesn't exist
+            DatabaseUtils.createManageStaffTable();
+            // Create ManageStaff table if it doesn't exist
+            DatabaseUtils.createRecruitTable();
 
             // Start the server
             MultiThreadedServer server = new MultiThreadedServer(port);
