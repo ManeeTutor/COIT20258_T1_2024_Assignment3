@@ -10,11 +10,13 @@ import com.cqu.aise.server.User;
  *
  * @author 61475
  */
-public class Staff extends User {
+public abstract class Staff extends User {
 
     public Staff(String userType, String userName, String password, String fullName, String address, String phone, String email, String location) {
         super(userType, userName, password, fullName, address, phone, email, location);
     }
+
+    public abstract void register();
 
     public void viewRecruitDetail() {
         // Method implementation
