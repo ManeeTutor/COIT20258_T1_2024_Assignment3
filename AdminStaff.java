@@ -4,9 +4,6 @@
  */
 package com.cqu.aise.server;
 
-import com.cqu.aise.server.DatabaseUtils;
-import com.cqu.aise.server.Staff;
-
 /**
  *
  * @author 61475
@@ -16,18 +13,23 @@ public class AdminStaff extends Staff {
     private int adminStaffId;
     private String positionType;
 
-
-
     public AdminStaff(String positionType, String userType, String userName, String password, String fullName, String address, String phone, String email, String location) {
         super(userType, userName, password, fullName, address, phone, email, location);
         this.positionType = positionType;
     }
 
-
-    public void adminRegister() {
-        super.userRegister(); //
+    @Override
+    public void register() {
         DatabaseUtils.adminRegister(this);
-        System.out.println("Recruit registered");
+        System.out.println("AdminStaff data saved to LinkedList");
+        System.out.println("User Type: " + getUserType());
+        System.out.println("Username: " + getUserName());
+        System.out.println("Full Name: " + getFullName());
+        System.out.println("Address: " + getAddress());
+        System.out.println("Phone: " + getPhone());
+        System.out.println("Email: " + getEmail());
+        System.out.println("Location: " + getLocation());
+        System.out.println("PositionType: " + positionType);
     }
 
     public void registerRecruit() {
@@ -52,4 +54,9 @@ public class AdminStaff extends Staff {
         return positionType;
     }
 
+    public void setPositionType(String positionType) {
+        this.positionType = positionType;
+    }
+    
+    
 }
