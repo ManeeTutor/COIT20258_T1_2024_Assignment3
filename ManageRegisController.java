@@ -83,12 +83,12 @@ public class ManageRegisController implements Initializable {
 
         if (managementLevelString != null && locationString != null) {
 
-            ManageStaff manageStaff = new ManageStaff(managementLevelString, "Management Staff", userName, password, fullName, address, phone, email, locationString);
-
-            DatabaseUtils.manageRegister(manageStaff);
+            ManageStaff manageStaff = new ManageStaff(managementLevelString, Constants.UserType.MANAGEMENTSTAFF, userName, password, fullName, address, phone, email, locationString);
+            manageStaff.register();
+            //DatabaseUtils.manageRegister(manageStaff);
         } else {
 
-            System.out.println("Must choose location and position type");
+            System.out.println("Must choose location and management Level");
         }
     }
     
