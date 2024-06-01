@@ -4,11 +4,15 @@
  */
 package com.cqu.aise.server;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author 61475
  */
-public class User {
+public abstract class User {
+
+    protected static LinkedList<User> userList = new LinkedList<>();
 
     private String userType;
     private String userName;
@@ -18,6 +22,7 @@ public class User {
     private String phone;
     private String email;
     private String location;
+    
 
     public User(String userType, String userName, String password, String fullName, String address, String phone, String email, String location) {
         this.userType = userType;
@@ -28,11 +33,11 @@ public class User {
         this.phone = phone;
         this.email = email;
         this.location = location;
+
+        userList.add(this);
     }
 
-    public void userRegister() {
-        // Method implementation
-    }
+    public abstract void register();
 
     public void viewUserDetail() {
         // Method implementation
@@ -113,6 +118,14 @@ public class User {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public static LinkedList<User> getUserList() {
+        return userList;
+    }
+
+    public static void setUserList(LinkedList<User> userList) {
+        User.userList = userList;
     }
 
 }
